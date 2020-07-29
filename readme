@@ -1,0 +1,20 @@
+Requirements
+Python 3 with packages pandas, sortedcontainers, and scikit-learn.
+
+Please save main.py, signalgeneration.py, res_20190610.csv, res_20190611.csv, res_20190612.csv, res_20190613.csv, and res_20190614.csv into the same working directory.
+You can also unzip the submitted file as is. Open main.py.
+
+Part 1: Generating order book data from raw updates
+Change the read_csv call on line four to select whichever input file you would like to work with. 
+This has been submitted for the last day, but for example, if you would like to look at the second provided day, the line would read "updates=pd.read_csv('res_20190611.csv')".
+
+Next, change the open() call on line six to match the filepath on line four, with 'output' added. This prevents the input files from being altered. Similarly, this is initialized to the last day, but for example if you want to look at the second day, it would read "file=open('res_20190611output.csv', 'w')".
+
+Now run the program to create a single output file as specified. See res_20190614nosignal.csv for an example as signalgeneration will subset the requested output.
+
+Part 2: Modelling and signal generation
+The modeling and signal generation are done in signalgeneration.py. The program will read in the created CSVs output from Part 1, and append several columns with predictors and a buy/sell signal.
+
+It is important to mention that the program filters records without either a bid or ask to facilitate predictions.
+
+The filepath variable f needs to be adjusted on line five and follow the same output naming convention as in Part 1. The submitted version selects the last day.
